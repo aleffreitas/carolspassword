@@ -4,7 +4,7 @@ type ScoreCircleProps = {
   score: number;
 }
 
-export default function ScoreCircle({ score }: ScoreCircleProps){
+export function ScoreCircle({ score }: ScoreCircleProps){
   return(
     <Container>
       {/* <Neon> */}

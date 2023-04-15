@@ -1,6 +1,6 @@
 import { Bloc, Container, ContentBloc, Padlock } from "./styles";
 
-export default function Password(){
+export function Password(){
   return(
     <Container>
       <Padlock />

@@ -1,13 +1,23 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
-import Button from "./components/Button";
-import Header from "./components/Header";
+import { Dashboard } from "./pages/Dashboard";
+import { GlobalStyle } from "./styles/global";
+import { Header } from "./components/Header";
+import { Container, Content, GlobalContainer } from "./components/ContainerGlobal/styles";
 
 export function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <h1>Hello world</h1>
+      <GlobalStyle />
+      <Container>
+        <Content>
+          <Header />
+          <GlobalContainer>
+            <Dashboard />
+          </GlobalContainer>
+        </Content>
+      </Container>
     </ThemeProvider>
   )
 }

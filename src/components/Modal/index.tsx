@@ -8,7 +8,7 @@ type ModalProps = {
   onClose: () => void;
 }
 
-export default function Modal({ open, onClose, children }: ModalProps){
+export function Modal({ open, onClose, children }: ModalProps){
   return(
     <Dialog.Root open={open} onOpenChange={onClose}>
       <Dialog.Portal>

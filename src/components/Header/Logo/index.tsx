@@ -5,7 +5,7 @@ type LogoProps = {
   subTitle: string;
 }; 
 
-export default function Logo({ size, subTitle }: LogoProps){
+export function Logo({ size, subTitle }: LogoProps){
   return(
     <Container size={size}>
       <Title>{`Carol's`}</Title>

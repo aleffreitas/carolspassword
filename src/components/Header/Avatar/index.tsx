@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CircleButton, Icon } from "./styles";
 
-export default function Avatar(){
+export function Avatar(){
   const [ open, setOpen] = useState(false);
 
   function closeModal(){

@@ -1,11 +1,11 @@
-import Avatar from "./Avatar";
-import Logo from "./Logo";
+import { Avatar } from "./Avatar";
+import { Logo } from "./Logo";
 import { Container } from "./styles";
 
-export default function Header(){
+export function Header(){
   return(
     <Container>
-      <Logo size={16} subTitle="Password"/>
+      <Logo size={12} subTitle="Password"/>
       <Avatar />
     </Container>
   );

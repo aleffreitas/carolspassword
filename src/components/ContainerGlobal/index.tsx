@@ -5,7 +5,7 @@ type ContainerGlobalProps = {
   children: ReactNode;
 };
 
-export default function ContainerGlobal({ children }: ContainerGlobalProps){
+export function ContainerGlobal({ children }: ContainerGlobalProps){
   return(
     <Container>{children}</Container>
   );
