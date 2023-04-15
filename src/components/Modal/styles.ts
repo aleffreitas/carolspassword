@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Overlay as RadixOverlay, Content as RadixContent } from '@radix-ui/react-dialog';
+import { BsXLg } from 'react-icons/bs';
 
 export const Overlay = styled(RadixOverlay)`
   background: rgba(0, 0, 0, 0.92);
@@ -21,4 +22,23 @@ export const Content = styled(RadixContent)`
   padding: 32px;
   border-radius: 10px;
   box-sizing: border-box;
+  position: relative;
+`;
+
+export const ButtonClose = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  position: absolute;
+  background: none;
+  right: 1rem;
+  top: 1rem;
+`;
+
+export const Icon = styled(BsXLg)`
+  ${({ theme }) => css`
+    color: ${theme.colors.purple};  
+    font-size: 22px;
+  `}
 `;

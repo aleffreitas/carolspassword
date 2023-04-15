@@ -37,9 +37,8 @@ export function Dashboard(){
           </Text>
           <Button
             text="Let's go!"
-            variant={1}
-            icon="house"
             type="button" 
+            variant={0}
             onClick={() => closeModal()}
           />
         </Container>
