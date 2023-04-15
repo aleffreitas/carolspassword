@@ -25,9 +25,9 @@ export function Dashboard(){
     <>
       <Password />
       <ScoreCircle score={100} />
-      <Button text="Start the Quiz"/>
+      <Button text="Start the Quiz" onClick={() => closeModal} />
 
-      <Modal open={openModal} onClose={closeModal}>
+      <Modal open={openModal} onClose={() => closeModal()}>
         <Container>
           <Title>Welcome to</Title>
           <Logo subTitle="Password" size={16} />
@@ -35,7 +35,13 @@ export function Dashboard(){
             Complete o quiz e alcance 100 pontos para gerar a senha de desbloqueio do cadeado e, dessa forma, ter acesso ao presente dentro do baú.
             Boa sorte!
           </Text>
-          <Button text="Let's go!" />
+          <Button
+            text="Let's go!"
+            variant={1}
+            icon="house"
+            type="button" 
+            onClick={() => closeModal()}
+          />
         </Container>
       </Modal>
     </>
