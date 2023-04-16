@@ -16,10 +16,16 @@ interface FormDataProps {
 export function Questions(){
   const [numberQuestion, setNumberQuestion] = useState(0);
   const [openModal, setOpenModal] = useState(false);
+  const [wrongQuestion, setWrongQuestion] = useState(false);
 
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
+
+  function closeModal(){
+    setOpenModal(false);
+    console.log('teste')
+  }
 
   const dataQuestion = questions?.map(question => {
     const data = {
@@ -41,9 +47,14 @@ export function Questions(){
       }
 
       if(dataQuestion[numberQuestion]?.password === passwordQuestion){
+        setWrongQuestion(false);        
         setOpenModal(true);
         setNumberQuestion(question + 1);
+        return;
       }
+
+      setOpenModal(true);
+      setWrongQuestion(true);
 
     } catch(e){
       console.log(e);
@@ -82,9 +93,9 @@ export function Questions(){
       </KeyBox>
 
       <ModalReturnQuestion
-        open
-        onClose={() => setOpenModal(false)}
-        icon="ok"
+        open={openModal}
+        onClose={() => closeModal()}
+        icon={!wrongQuestion ? "ok" : "wrong"}
       />
     </>
   );

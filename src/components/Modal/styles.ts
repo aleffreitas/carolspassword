@@ -12,6 +12,7 @@ export const Overlay = styled(RadixOverlay)`
   display: grid;
   place-items: center;
   overflow-y: auto;
+  z-index: 999;
 `;
 
 export const Content = styled(RadixContent)`

@@ -10,7 +10,6 @@ export function Quiz(){
     <Container>
       <ScoreCircle score={100} scale={0.4}/>
       <Questions />
-
     </Container>
   );
 }

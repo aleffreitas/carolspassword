@@ -14,7 +14,7 @@ export const CircleButton = styled.button`
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  z-index: 9999;
+  z-index: 99;
 
   &:hover {
     filter: brightness(0.8);

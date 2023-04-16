@@ -28,7 +28,8 @@ export function ModalReturnQuestion({ open, onClose, icon }: ModalReturnQuestion
         <Text>{icon === 'ok' ? 'Correct!' : 'Vishhh Wrong!'}</Text>
         <Button
           variant={0}
-          text="Next Question"
+          text={icon === 'ok' ? 'Next Question' : 'Try Again'}
+          onClick={() => onClose()}
         />
       </Container>
     </Modal>
