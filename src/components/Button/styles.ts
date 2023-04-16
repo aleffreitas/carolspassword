@@ -18,6 +18,12 @@ export const ButtonAction = styled.button<ButtonProps>`
     border: none;
     height: 68px;
     width: 100%;
+    cursor: pointer;
+    
+    &:hover{
+      filter: brightness(0.8);
+      transition: all 0.2s ease-in-out;
+    }
   `}
 
   ${({ theme, variant }) => variant === 1 && css`
@@ -30,6 +36,13 @@ export const ButtonAction = styled.button<ButtonProps>`
     gap: 0.4rem;
     align-items: center;
     flex-direction: column;
+
+    cursor: pointer;
+    
+    &:hover{
+      filter: brightness(0.8);
+      transition: all 0.2s ease-in-out;
+    }
   `}
 
 `;

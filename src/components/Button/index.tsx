@@ -1,15 +1,17 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 import { ButtonAction, Icon } from "./styles";
-import { BsArrowCounterclockwise, BsHouse, BsPower } from "react-icons/bs";
+import { BsArrowCounterclockwise, BsArrowRight, BsHouse, BsPower } from "react-icons/bs";
+import { IconType } from "react-icons";
 
 interface ButtonProps extends ButtonHTMLAttributes<ButtonProps>{
-  text: string;
-  onClick: () => void;
+  text?: string;
+  onClick?: () => void;
   variant?: 0 | 1;
   icon?: 'power' | 'arrowBack' | 'house';
+  arrow?: boolean;
 }
 
-export function Button({ text, onClick, variant, icon }: ButtonProps){
+export function Button({ text, onClick, variant, icon, arrow }: ButtonProps){
 
   const iconButton = {
     power: <BsPower />,
@@ -27,8 +29,8 @@ export function Button({ text, onClick, variant, icon }: ButtonProps){
           {icon && iconButton[icon]}
         </Icon>
       )}
-      
-      {text}
+      {text && text}
+      {arrow && <BsArrowRight />}
     </ButtonAction>
   );
 }

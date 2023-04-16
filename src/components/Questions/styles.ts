@@ -52,3 +52,21 @@ export const Text = styled.p`
     font-weight: bold;
   `}
 `;
+
+export const TextParagraph = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.white}; 
+  `}
+  font-size: 16px;
+  font-weight: regular;
+  text-align: left;
+`;
+
+export const KeyBox = styled.form`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 2rem;
+  gap: 2rem;
+`;
