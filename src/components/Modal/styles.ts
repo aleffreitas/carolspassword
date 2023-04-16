@@ -23,6 +23,7 @@ export const Content = styled(RadixContent)`
   border-radius: 10px;
   box-sizing: border-box;
   position: relative;
+  overflow: hidden;
 `;
 
 export const ButtonClose = styled.button`

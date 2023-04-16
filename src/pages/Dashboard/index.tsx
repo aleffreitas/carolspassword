@@ -25,7 +25,7 @@ export function Dashboard(){
     <>
       <Password />
       <ScoreCircle score={100} />
-      <Button text="Start the Quiz" onClick={() => closeModal} />
+      <Button text="Start the Quiz" variant={0} onClick={() => closeModal} />
 
       <Modal open={openModal} onClose={() => closeModal()}>
         <Container>
