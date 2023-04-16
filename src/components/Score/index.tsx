@@ -2,11 +2,12 @@ import { Container, InnerCircle, OuterCircle, Score, Text } from "./styles";
 
 type ScoreCircleProps = {
   score: number;
+  scale?: number;
 }
 
-export function ScoreCircle({ score }: ScoreCircleProps){
+export function ScoreCircle({ score, scale }: ScoreCircleProps){
   return(
-    <Container>
+    <Container scale={scale}>
       <OuterCircle>
         <InnerCircle>
           <Text>Score</Text>

@@ -5,6 +5,7 @@ import { GlobalStyle } from "./styles/global";
 import { Header } from "./components/Header";
 import { Container, Content, GlobalContainer } from "./components/ContainerGlobal/styles";
 import { Load } from "./pages/Load";
+import { Quiz } from "./pages/Quiz";
 
 export function App() {
 
@@ -13,10 +14,11 @@ export function App() {
       <GlobalStyle />
       <Container>
         <Content>
-          {/* <Header /> */}
+          <Header />
           <GlobalContainer>
             {/* <Dashboard /> */}
-            <Load />
+            {/* <Load /> */}
+            <Quiz />
           </GlobalContainer>
         </Content>
       </Container>

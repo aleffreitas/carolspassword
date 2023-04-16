@@ -1,6 +1,13 @@
 import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+type ContainerProps = {
+  scale?: number;
+};
+
+export const Container = styled.div<ContainerProps>`
+  ${({ scale }) => css`
+    transform: scale(${scale});
+  `}
   display: flex;
   align-items: center;
   justify-content: center;

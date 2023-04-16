@@ -6,7 +6,7 @@ import Loading from '../../assets/images/loading.svg';
 export function Load(){
   return(
     <Container>
-      <AvatarAnimation variantAnimation="walking" />
+      <AvatarAnimation variantAnimation="jumpRun" />
       <Content>
         <Logo subTitle="Password" size={18} />
         <IconLoading src={Loading} />
