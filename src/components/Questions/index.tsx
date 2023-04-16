@@ -24,7 +24,6 @@ export function Questions(){
 
   function closeModal(){
     setOpenModal(false);
-    console.log('teste')
   }
 
   const dataQuestion = questions?.map(question => {
@@ -37,7 +36,6 @@ export function Questions(){
   });
 
   async function sendQuestion(form: FormDataProps){
-    console.log(numberQuestion)
     try{
       let passwordQuestion = form?.password;
       let question = numberQuestion;
@@ -50,9 +48,11 @@ export function Questions(){
         setWrongQuestion(false);        
         setOpenModal(true);
         setNumberQuestion(question + 1);
+        reset();
         return;
       }
 
+      reset();
       setOpenModal(true);
       setWrongQuestion(true);
 

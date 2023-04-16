@@ -43,4 +43,10 @@ export const Icon = styled(BsXLg)`
     color: ${theme.colors.purple};  
     font-size: 22px;
   `}
+  cursor: pointer;
+
+  &:hover{
+    filter: brightness(0.8);
+    transition: all 0.2s ease-in-out;
+  }
 `;

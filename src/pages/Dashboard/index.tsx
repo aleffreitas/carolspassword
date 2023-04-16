@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { Button } from "../../components/Button";
 import { Password } from "../../components/Password";
 import { ScoreCircle } from "../../components/Score";
-import { Modal } from "../../components/Modal";
-import { Container, Text, Title } from "./styles";
-import { Logo } from "../../components/Logo";
+import { WelcomeModal } from "./WelcomeModal";
+import { WinnerModal } from "./WinnerModal";
 
 export function Dashboard(){
   const [openModal, setOpenModal] = useState(false);
@@ -19,30 +18,17 @@ export function Dashboard(){
 
   useEffect(() => {
     openInitialModal();
-  },[]);
+  },[])
 
   return(
     <>
       <Password />
       <ScoreCircle score={100} />
-      <Button text="Start the Quiz" variant={0} onClick={() => closeModal} />
+      <Button text="Start the Quiz" variant={0} onClick={() => console.log('teste')} />
 
-      <Modal open={openModal} onClose={() => closeModal()}>
-        <Container>
-          <Title>Welcome to</Title>
-          <Logo subTitle="Password" size={16} />
-          <Text>
-            Complete o quiz e alcance 100 pontos para gerar a senha de desbloqueio do cadeado e, dessa forma, ter acesso ao presente dentro do baú.
-            Boa sorte!
-          </Text>
-          <Button
-            text="Let's go!"
-            type="button" 
-            variant={0}
-            onClick={() => closeModal()}
-          />
-        </Container>
-      </Modal>
+      <WelcomeModal open={openModal} onClose={() => closeModal()} />
+
+      <WinnerModal open={false} onClose={() => closeModal()}/>
     </>
   );
 }

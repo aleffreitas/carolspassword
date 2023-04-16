@@ -15,7 +15,7 @@ export function Profile({ open, onClose }: ProfileProps){
       <Container>
         <ContentPerson>
           <PersonBox>
-            <Avatar/>
+            <Avatar />
             <DataPersonBox>
               <Name>Carol</Name>
               <Email>carol@gmail.com</Email>
