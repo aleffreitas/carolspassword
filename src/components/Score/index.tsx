@@ -7,15 +7,13 @@ type ScoreCircleProps = {
 export function ScoreCircle({ score }: ScoreCircleProps){
   return(
     <Container>
-      {/* <Neon> */}
-        <OuterCircle>
-          <InnerCircle>
-            <Text>Score</Text>
-            <Score>{score}</Score>
-            <Text>pts</Text>
-          </InnerCircle>
-        </OuterCircle>
-      {/* </Neon> */}
+      <OuterCircle>
+        <InnerCircle>
+          <Text>Score</Text>
+          <Score>{score}</Score>
+          <Text>pts</Text>
+        </InnerCircle>
+      </OuterCircle>
     </Container>
   );
 }

@@ -10,6 +10,7 @@ export const Content = styled.div`
   width: 100%;
   max-width: 414px;
   height: 100vh;
+  overflow: hidden;
 `;
 
 export const GlobalContainer = styled.div`

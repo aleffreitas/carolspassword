@@ -7,8 +7,8 @@ export function Password(){
       <ContentBloc>
         <Bloc>1</Bloc>
         <Bloc>1</Bloc>
-        <Bloc>1</Bloc>
-        <Bloc>1</Bloc>
+        <Bloc>?</Bloc>
+        <Bloc>?</Bloc>
       </ContentBloc>
     </Container>
   );
