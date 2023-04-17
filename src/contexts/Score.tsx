@@ -1,4 +1,6 @@
-import { ReactNode, createContext, useCallback, useMemo, useState } from "react";
+import { ReactNode, createContext, useCallback, useEffect, useMemo, useState } from "react";
+import { UserProps } from "./UserData";
+import { useData } from "../hooks";
 
 type ScoreProviderProps = {
   children: ReactNode;
@@ -19,10 +21,23 @@ export const ScoreContext = createContext<ScoreContextData>(
 
 export function ScoreContextProvider({ children }: ScoreProviderProps) {
   const [score, setScore] = useState(0);
+  const { data } = useData();
 
-  const handleScore = useCallback(({ score }: ScoreProps) => {
-    setScore(score);
+  const handleScore = useCallback((newScore: number) => {
+    setScore(newScore);
   }, []);
+
+  async function getData(){
+    const data: UserProps = JSON.parse(localStorage.getItem("userData"));
+    if(!data){
+      return ;
+    }
+    setScore(data?.score)
+  }
+
+  useEffect(() => {
+    getData()
+  },[]);
 
   const values = useMemo<ScoreContextData>(
     () => ({

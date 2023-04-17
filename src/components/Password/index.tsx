@@ -17,8 +17,8 @@ export function Password(){
         {score === 100 ? <BsUnlock /> : <BsLock />}
       </Padlock>
       <ContentBloc>
-        {password.map(password => 
-          <Bloc>{score === 100 ? password : '?'}</Bloc>
+        {password.map((password, index) => 
+          <Bloc key={index}>{score === 100 ? password : '?'}</Bloc>
         )}
       </ContentBloc>
     </Container>

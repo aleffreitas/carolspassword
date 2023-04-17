@@ -4,12 +4,13 @@ type UserProviderProps = {
   children: ReactNode;
 };
 
-type UserProps = {
-  score: number;
-  welcomeModal: boolean;
-  initialLoading: boolean;
-  pageBonus: boolean;
-  numberQuestion: number;
+export type UserProps = {
+  score?: number;
+  welcomeModal?: boolean;
+  winner?: boolean;
+  initialLoading?: boolean;
+  pageBonus?: boolean;
+  numberQuestion?: number;
 };
 
 export type UserContextData = {
@@ -22,12 +23,24 @@ export const UserContext = createContext<UserContextData>(
 );
 
 export function UserContextProvider({ children }: UserProviderProps) {
-  const [data, setData] = useState<UserProps>({} as UserProps);
+  const [data, setData] = useState<UserProps>({
+    score: 0,
+    welcomeModal: true,
+    winner: false,
+    initialLoading: true,
+    pageBonus: false,
+    numberQuestion: 0,
+  });
   
 
-  const handleData= useCallback(({}: UserProps) => {
-    setData(data);
-  }, []);
+  const handleData= useCallback((newData: Partial<UserProps>) => {
+    const updatedData = {
+      ...data,
+      ...newData
+    };
+    setData(updatedData);
+    localStorage.setItem('userData', JSON.stringify(updatedData));
+  }, [data, setData]);
 
   async function getData(){
     const localStorageData = localStorage.getItem('userData');
@@ -40,6 +53,7 @@ export function UserContextProvider({ children }: UserProviderProps) {
     const defaultData = {
       score: 0,
       welcomeModal: true,
+      winner: false,
       initialLoading: true,
       pageBonus: false,
       numberQuestion: 0,
@@ -51,7 +65,7 @@ export function UserContextProvider({ children }: UserProviderProps) {
 
   useEffect(() => {
     getData()
-  },[])
+  },[]);
 
   const values = useMemo<UserContextData>(
     () => ({

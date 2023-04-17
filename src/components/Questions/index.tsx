@@ -8,7 +8,7 @@ import { Button } from "../Button";
 import { Input } from "../Input";
 import { schema } from "./validations";
 import { ModalReturnQuestion } from "./ModalReturnQuestion";
-import { useScore } from "../../hooks";
+import { useData, useScore } from "../../hooks";
 
 interface FormDataProps {
   password: number;
@@ -19,6 +19,7 @@ export function Questions(){
   const [openModal, setOpenModal] = useState(false);
   const [wrongQuestion, setWrongQuestion] = useState(false);
   const { handleScore, score } = useScore();
+  const { data, handleData } = useData();
 
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
@@ -26,6 +27,13 @@ export function Questions(){
 
   function closeModal(){
     setOpenModal(false);
+  }
+
+  async function getData(){
+    if(!data){
+      return ;
+    }
+    setNumberQuestion(data?.numberQuestion!)
   }
 
   const dataQuestion = questions?.map(question => {
@@ -48,22 +56,31 @@ export function Questions(){
       }
 
       if(dataQuestion[numberQuestion]?.password === passwordQuestion){
-        handleScore({score: score + dataQuestion[numberQuestion]?.points})
         setWrongQuestion(false);        
         setOpenModal(true);
-        setNumberQuestion(question + 1);
+        handleScore(data?.score! + dataQuestion[numberQuestion]?.points);
+        handleData({
+          numberQuestion: data?.numberQuestion! + 1,
+          score: score + dataQuestion[numberQuestion]?.points
+        });
+        
         reset();
         return;
       }
 
-      reset();
       setOpenModal(true);
       setWrongQuestion(true);
+      reset();
+      return ;
 
     } catch(e){
       console.log(e);
     }
   }
+
+  useEffect(() => {
+    getData();
+  },[data?.numberQuestion])
   
   return(
     <>

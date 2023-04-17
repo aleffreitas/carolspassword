@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Container, InnerCircle, OuterCircle, Score, Text } from "./styles";
 
 type ScoreCircleProps = {

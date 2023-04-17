@@ -8,6 +8,7 @@ import { MyRoutes } from "./routes";
 import { useEffect, useState } from "react";
 import { Load } from "./components/Load";
 import { AppProvider } from "./contexts";
+import { useData } from "./hooks";
 
 export function App() {
   const [loading, setLoading] = useState(false);
@@ -17,9 +18,10 @@ export function App() {
     if(pathname && pathname === "" || pathname === '/'){
       setLoading(true);
     }
-    setTimeout(() => {
+    setTimeout(async () => {
       setLoading(false);
     }, 5000);
+
   },[]);
 
   return (
