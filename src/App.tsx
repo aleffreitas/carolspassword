@@ -7,11 +7,16 @@ import { RouterProvider } from "react-router-dom";
 import { MyRoutes } from "./routes";
 import { useEffect, useState } from "react";
 import { Load } from "./components/Load";
+import { AppProvider } from "./contexts";
 
 export function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const pathname = window.location.pathname;
 
   useEffect(() => {
+    if(pathname && pathname === "" || pathname === '/'){
+      setLoading(true);
+    }
     setTimeout(() => {
       setLoading(false);
     }, 5000);
@@ -19,19 +24,21 @@ export function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Container>
-        {loading ?(
-          <Load />
-        ):(
-          <Content>
-            <Header /> 
-            <GlobalContainer>
-              <MyRoutes />
-            </GlobalContainer>
-          </Content>
-        )}
-      </Container>
+      <AppProvider>
+        <GlobalStyle />
+        <Container>
+          {loading ?(
+            <Load />
+          ):(
+            <Content>
+              <Header /> 
+              <GlobalContainer>
+                <MyRoutes />
+              </GlobalContainer>
+            </Content>
+          )}
+        </Container>
+      </AppProvider>
     </ThemeProvider>
   )
 }

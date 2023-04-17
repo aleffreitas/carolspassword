@@ -1,0 +1,1 @@
+export { useScore } from './useScore';

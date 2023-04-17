@@ -8,6 +8,7 @@ import { Button } from "../Button";
 import { Input } from "../Input";
 import { schema } from "./validations";
 import { ModalReturnQuestion } from "./ModalReturnQuestion";
+import { useScore } from "../../hooks";
 
 interface FormDataProps {
   password: number;
@@ -17,6 +18,7 @@ export function Questions(){
   const [numberQuestion, setNumberQuestion] = useState(0);
   const [openModal, setOpenModal] = useState(false);
   const [wrongQuestion, setWrongQuestion] = useState(false);
+  const { handleScore, score } = useScore();
 
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
@@ -30,6 +32,7 @@ export function Questions(){
     const data = {
       id: question.id,
       password: question.password,
+      points: question.points,
       text: question.text
     }
     return data;
@@ -48,6 +51,7 @@ export function Questions(){
         setWrongQuestion(false);        
         setOpenModal(true);
         setNumberQuestion(question + 1);
+        handleScore({score: score + dataQuestion[numberQuestion]?.points})
         reset();
         return;
       }
@@ -60,7 +64,6 @@ export function Questions(){
       console.log(e);
     }
   }
-
   
   return(
     <>

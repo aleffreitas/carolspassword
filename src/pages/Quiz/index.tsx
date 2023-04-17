@@ -1,15 +1,30 @@
-import { BsArrowRight } from "react-icons/bs";
-import { Button } from "../../components/Button";
-import { Input } from "../../components/Input";
+import { useEffect, useState } from "react";
 import { Questions } from "../../components/Questions";
 import { ScoreCircle } from "../../components/Score";
 import { Container } from "./styles";
+import { Loading } from "../../components/Loading";
+import { useScore } from "../../hooks";
 
 export function Quiz(){
+  const [loading, setLoading] = useState(true);
+  const { score } = useScore();
+  
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  },[]);
+
   return(
-    <Container>
-      <ScoreCircle score={100} scale={0.4}/>
-      <Questions />
-    </Container>
+    <>
+      {loading ? (
+        <Loading />
+      ):(
+        <Container>
+          <ScoreCircle score={score} scale={0.4}/>
+          <Questions />
+        </Container>
+      )}
+    </>
   );
 }

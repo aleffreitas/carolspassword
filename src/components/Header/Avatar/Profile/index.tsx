@@ -1,4 +1,5 @@
 import { Avatar } from "..";
+import { useScore } from "../../../../hooks";
 import { AvatarAnimation } from "../../../AvatarAnimation";
 import { Button } from "../../../Button";
 import { Modal } from "../../../Modal";
@@ -10,6 +11,7 @@ type ProfileProps = {
 }
 
 export function Profile({ open, onClose }: ProfileProps){
+  const { score } = useScore();
   return(
     <Modal  open={open} onClose={onClose} closeIcon >
       <Container>
@@ -22,7 +24,7 @@ export function Profile({ open, onClose }: ProfileProps){
             </DataPersonBox>
           </PersonBox>
           <ScoreBox>
-            <Score>100</Score>
+            <Score>{score}</Score>
             <Text>pts</Text>
           </ScoreBox>
         </ContentPerson>

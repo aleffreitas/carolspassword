@@ -5,10 +5,12 @@ import { ScoreCircle } from "../../components/Score";
 import { WelcomeModal } from "./WelcomeModal";
 import { WinnerModal } from "./WinnerModal";
 import { useNavigate } from "react-router-dom";
+import { useScore } from "../../hooks";
 
 export function Dashboard(){
   const [openModal, setOpenModal] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { score } = useScore();
 
   function openInitialModal(){
     setOpenModal(true);
@@ -25,7 +27,7 @@ export function Dashboard(){
   return(
     <>
       <Password />
-      <ScoreCircle score={100} />
+      <ScoreCircle score={score} />
       <Button text="Start the Quiz" variant={0} onClick={() => navigate("/quiz")} />
 
       <WelcomeModal open={openModal} onClose={() => closeModal()} />
