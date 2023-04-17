@@ -12,10 +12,11 @@ import { useData } from "./hooks";
 
 export function App() {
   const [loading, setLoading] = useState(false);
+  const { data } = useData();
   const pathname = window.location.pathname;
 
   useEffect(() => {
-    if(pathname && pathname === "" || pathname === '/'){
+    if(pathname && pathname === "" || pathname === '/' && data?.initialLoading === true){
       setLoading(true);
     }
     setTimeout(async () => {

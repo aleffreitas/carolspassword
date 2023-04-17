@@ -7,6 +7,7 @@ export function MyRoutes(){
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/quiz" element={<Quiz />} />
       </Routes>
     </BrowserRouter>

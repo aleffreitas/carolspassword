@@ -1,11 +1,14 @@
 import { Logo } from "../Logo";
 import { Avatar } from "./Avatar";
-import { Container } from "./styles";
+import { Container, ContentLogo } from "./styles";
 
 export function Header(){
+
   return(
     <Container>
-      <Logo size={12} subTitle="Password"/>
+      <ContentLogo onClick={() => window.location.href = '/dashboard'}>
+        <Logo size={12} subTitle="Password" />
+      </ContentLogo>
       <Avatar />
     </Container>
   );

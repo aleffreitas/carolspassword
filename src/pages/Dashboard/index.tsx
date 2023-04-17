@@ -6,10 +6,12 @@ import { WelcomeModal } from "./WelcomeModal";
 import { WinnerModal } from "./WinnerModal";
 import { useNavigate } from "react-router-dom";
 import { useData, useScore } from "../../hooks";
+import { Loading } from "../../components/Loading";
 
 export function Dashboard(){
   const [openModal, setOpenModal] = useState(false);
   const [pontuation, setPontuation] = useState(0);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const { score, handleScore } = useScore();
   const { data, handleData } = useData();
@@ -20,7 +22,10 @@ export function Dashboard(){
 
   function closeInitialModal(){
     setOpenModal(false);
-    handleData({welcomeModal: false})
+    handleData({
+      welcomeModal: false,
+      initialLoading: false,      
+    })
   }
 
   async function isWinner(){
@@ -58,34 +63,46 @@ export function Dashboard(){
   
   useEffect(() => {
     setPontuation(data?.score!)
-  },[data?.score])
+  },[data?.score]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  },[]);
 
   return(
     <>
-      <Password />
-      <ScoreCircle score={pontuation} />
-      {data?.winner === true ? (
-        <Button
-          text="Reset Progress"
-          variant={1}
-          icon="arrowBack"
-          onClick={() => resetProgress()}
-        />
-      ): (      
-        <Button
-          text={data?.numberQuestion! > 0 ? "Continue Quiz" : "Start the Quiz"}
-          variant={0}
-          onClick={() => navigate("/quiz")}
-        />
-      )}
+      {loading ? (
+        <Loading />
+      ):(
+        <>
+          <Password />
+          <ScoreCircle score={pontuation} />
+          {data?.winner === true ? (
+            <Button
+              text="Reset Progress"
+              variant={1}
+              icon="arrowBack"
+              onClick={() => resetProgress()}
+            />
+          ): (      
+            <Button
+              text={data?.numberQuestion! > 0 ? "Continue Quiz" : "Start the Quiz"}
+              variant={0}
+              onClick={() => navigate("/quiz")}
+            />
+          )}
 
 
-      {data?.welcomeModal &&(
-        <WelcomeModal open={openModal} onClose={() => closeInitialModal()} />
-      )}
+          {data?.welcomeModal &&(
+            <WelcomeModal open={openModal} onClose={() => closeInitialModal()} />
+          )}
 
-      {data?.winner &&(
-        <WinnerModal open={false} onClose={() => closeModal()}/>
+          {data?.winner &&(
+            <WinnerModal open={false} onClose={() => closeModal()}/>
+          )}
+        </>
       )}
     </>
   );
