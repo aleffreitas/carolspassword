@@ -3,8 +3,8 @@ import { theme } from "./styles/theme";
 import { GlobalStyle } from "./styles/global";
 import { Header } from "./components/Header";
 import { Container, Content, GlobalContainer } from "./components/ContainerGlobal/styles";
-import { BrowserRouter, RouterProvider, useNavigate } from "react-router-dom";
-import { router } from "./routes";
+import { RouterProvider } from "react-router-dom";
+import { MyRoutes } from "./routes";
 import { useEffect, useState } from "react";
 import { Load } from "./components/Load";
 
@@ -27,7 +27,7 @@ export function App() {
           <Content>
             <Header /> 
             <GlobalContainer>
-              <RouterProvider router={router} />
+              <MyRoutes />
             </GlobalContainer>
           </Content>
         )}
