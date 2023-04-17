@@ -1,5 +1,8 @@
 import styled, { css } from "styled-components";
-import { BsLock } from "react-icons/bs";
+
+type PadlockProps = {
+  score: number;
+}
 
 export const Container = styled.div`
   display: flex;
@@ -10,12 +13,16 @@ export const Container = styled.div`
   width: 183px;
 `;
 
-export const Padlock = styled(BsLock)`
-  ${({ theme }) => css`
+export const Padlock = styled.div<PadlockProps>`
+  ${({ theme, score }) => css`
     color: ${theme.colors.purple};
+    margin-left: ${score === 100 ? '15px' : 0};
   `}
-  width: 56px;
-  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 48px;
 `;
 
 export const Bloc = styled.div`

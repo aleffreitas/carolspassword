@@ -48,10 +48,10 @@ export function Questions(){
       }
 
       if(dataQuestion[numberQuestion]?.password === passwordQuestion){
+        handleScore({score: score + dataQuestion[numberQuestion]?.points})
         setWrongQuestion(false);        
         setOpenModal(true);
         setNumberQuestion(question + 1);
-        handleScore({score: score + dataQuestion[numberQuestion]?.points})
         reset();
         return;
       }
