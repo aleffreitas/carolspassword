@@ -3,16 +3,25 @@ import { Questions } from "../../components/Questions";
 import { ScoreCircle } from "../../components/Score";
 import { Container } from "./styles";
 import { Loading } from "../../components/Loading";
-import { useScore } from "../../hooks";
+import { useData } from "../../hooks";
 
 export function Quiz(){
   const [loading, setLoading] = useState(true);
-  const { score } = useScore();
+  const [pontuation, setPontuation] = useState(0);
+  const { data } = useData();
   
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 1500);
+  },[]);
+
+  useEffect(() => {
+    if(!data){
+      return;
+    }
+
+    setPontuation(data?.score!);
   },[]);
 
   return(
@@ -21,7 +30,7 @@ export function Quiz(){
         <Loading />
       ):(
         <Container>
-          <ScoreCircle score={score} scale={0.4}/>
+          <ScoreCircle score={pontuation} scale={0.4}/>
           <Questions />
         </Container>
       )}

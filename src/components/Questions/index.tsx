@@ -9,6 +9,7 @@ import { Input } from "../Input";
 import { schema } from "./validations";
 import { ModalReturnQuestion } from "./ModalReturnQuestion";
 import { useData, useScore } from "../../hooks";
+import { useNavigate } from "react-router-dom";
 
 interface FormDataProps {
   password: number;
@@ -20,6 +21,7 @@ export function Questions(){
   const [wrongQuestion, setWrongQuestion] = useState(false);
   const { handleScore, score } = useScore();
   const { data, handleData } = useData();
+  const navigate = useNavigate();
 
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
@@ -46,6 +48,36 @@ export function Questions(){
     return data;
   });
 
+   async function isWinner(){
+    if(!data){
+      return ;
+    }
+
+    if(data?.score === 100 && data?.numberQuestion === 4){
+      handleData({ winner: true });
+      finalGame();
+    };
+  }
+
+  async function finalGame(){
+    if(!data){
+      return ;
+    }
+    navigate("/dashboard");
+    handleData({ 
+      winner: true,
+      winnerModal: true
+    });
+  }
+
+  useEffect(() => {
+    getData();
+  },[data?.numberQuestion]);
+
+  useEffect(() => {
+    isWinner();
+  },[data?.score]);
+
   async function sendQuestion(form: FormDataProps){
     try{
       let passwordQuestion = form?.password;
@@ -61,7 +93,7 @@ export function Questions(){
         handleData({
           numberQuestion: data?.numberQuestion! + 1,
           score: score + dataQuestion[numberQuestion]?.points,
-          winner: data.score === 100 && data.numberQuestion === 4 ? true : false,
+          winner: data?.score === 100 && data?.numberQuestion === 4 ? true : false,
         });
 
         setOpenModal(true);
@@ -80,9 +112,6 @@ export function Questions(){
     }
   }
 
-  useEffect(() => {
-    getData();
-  },[data?.numberQuestion])
   
   return(
     <>
@@ -111,6 +140,7 @@ export function Questions(){
           variant={0}
           type="submit"
           arrow
+          disabled={data?.numberQuestion === 4}
         />
       </KeyBox>
 
@@ -118,6 +148,7 @@ export function Questions(){
         open={openModal}
         onClose={() => closeModal()}
         icon={!wrongQuestion ? "ok" : "wrong"}
+        finishQuestions={data?.numberQuestion === 4 ? true : false}
       />
     </>
   );

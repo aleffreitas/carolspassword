@@ -7,6 +7,7 @@ type UserProviderProps = {
 export type UserProps = {
   score?: number;
   welcomeModal?: boolean;
+  winnerModal?: boolean;
   winner?: boolean;
   initialLoading?: boolean;
   pageBonus?: boolean;

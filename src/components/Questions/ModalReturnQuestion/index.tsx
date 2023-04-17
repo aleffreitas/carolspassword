@@ -7,9 +7,10 @@ type ModalReturnQuestionProps = {
   open: boolean;
   onClose: () => void;
   icon: 'ok' | 'wrong';
+  finishQuestions?: boolean;
 }
 
-export function ModalReturnQuestion({ open, onClose, icon }: ModalReturnQuestionProps){
+export function ModalReturnQuestion({ open, onClose, icon, finishQuestions }: ModalReturnQuestionProps){
   
   const selectedIcon = {
     ok: <BsCheck2Circle />,
@@ -28,7 +29,7 @@ export function ModalReturnQuestion({ open, onClose, icon }: ModalReturnQuestion
         <Text>{icon === 'ok' ? 'Correct!' : 'Vishhh Wrong!'}</Text>
         <Button
           variant={0}
-          text={icon === 'ok' ? 'Next Question' : 'Try Again'}
+          text={icon === 'ok' ? finishQuestions === true ? 'Finish' : 'Next Question' : 'Try Again'}
           onClick={() => onClose()}
         />
       </Container>

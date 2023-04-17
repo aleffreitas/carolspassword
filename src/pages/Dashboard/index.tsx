@@ -10,6 +10,7 @@ import { Loading } from "../../components/Loading";
 
 export function Dashboard(){
   const [openModal, setOpenModal] = useState(false);
+  const [openWinnerModal, setOpenWinnerModal] = useState(false);
   const [pontuation, setPontuation] = useState(0);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -28,15 +29,19 @@ export function Dashboard(){
     })
   }
 
-  async function isWinner(){
+  function winnerModal(){
     if(!data){
       return ;
     }
 
-    if(data?.score === 100 && data?.numberQuestion === 4){
-      handleData({ winner: true });
-    };
+    if(data?.winnerModal === true){
+      setOpenWinnerModal(true)
+    }
   }
+
+  function closeWinnerModal(){
+    setOpenWinnerModal(false);
+  } 
 
   function closeModal(){
     setOpenModal(false);
@@ -58,7 +63,7 @@ export function Dashboard(){
 
   useEffect(() => {
     openInitialModal();
-    isWinner()
+    winnerModal();
   },[]);
   
   useEffect(() => {
@@ -99,8 +104,8 @@ export function Dashboard(){
             <WelcomeModal open={openModal} onClose={() => closeInitialModal()} />
           )}
 
-          {data?.winner &&(
-            <WinnerModal open={false} onClose={() => closeModal()}/>
+          {openWinnerModal &&(
+            <WinnerModal open={openWinnerModal} onClose={() => closeWinnerModal()}/>
           )}
         </>
       )}
