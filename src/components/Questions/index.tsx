@@ -61,7 +61,8 @@ export function Questions(){
         handleScore(data?.score! + dataQuestion[numberQuestion]?.points);
         handleData({
           numberQuestion: data?.numberQuestion! + 1,
-          score: score + dataQuestion[numberQuestion]?.points
+          score: score + dataQuestion[numberQuestion]?.points,
+          winner: data.score === 100 && data.numberQuestion === 4 ? true : false,
         });
         
         reset();

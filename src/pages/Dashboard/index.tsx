@@ -9,8 +9,9 @@ import { useData, useScore } from "../../hooks";
 
 export function Dashboard(){
   const [openModal, setOpenModal] = useState(false);
+  const [pontuation, setPontuation] = useState(0);
   const navigate = useNavigate();
-  const { score } = useScore();
+  const { score, handleScore } = useScore();
   const { data, handleData } = useData();
 
   function openInitialModal(){
@@ -22,33 +23,62 @@ export function Dashboard(){
     handleData({welcomeModal: false})
   }
 
-  // async function isWinner(){
-  //   if(!data){
-  //     return ;
-  //   }
+  async function isWinner(){
+    if(!data){
+      return ;
+    }
 
-  //   if(data?.score === 100 && numberQuestion === 4){
-  //     handleData({ winner: true });
-  //   };
-  // }
+    if(data?.score === 100 && data?.numberQuestion === 4){
+      handleData({ winner: true });
+    };
+  }
 
   function closeModal(){
     setOpenModal(false);
+  } 
+
+  async function resetProgress(){
+    if(!data){
+      return ;
+    }
+
+    handleData({
+      numberQuestion: 0,
+      score: 0,
+      winner: false
+    });
+
+    handleScore({ score: 0 });
   }
 
   useEffect(() => {
     openInitialModal();
+    isWinner()
   },[]);
+  
+  useEffect(() => {
+    setPontuation(data?.score!)
+  },[data?.score])
 
   return(
     <>
       <Password />
-      <ScoreCircle score={score} />
-      <Button
-        text={data?.numberQuestion! > 0 ? "Continue Quiz" : "Start the Quiz"}
-        variant={0}
-        onClick={() => navigate("/quiz")}
-      />
+      <ScoreCircle score={pontuation} />
+      {data?.winner === true ? (
+        <Button
+          text="Reset Progress"
+          variant={1}
+          icon="arrowBack"
+          onClick={() => resetProgress()}
+        />
+      ): (      
+        <Button
+          text={data?.numberQuestion! > 0 ? "Continue Quiz" : "Start the Quiz"}
+          variant={0}
+          onClick={() => navigate("/quiz")}
+        />
+      )}
+
 
       {data?.welcomeModal &&(
         <WelcomeModal open={openModal} onClose={() => closeInitialModal()} />

@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { Avatar } from "..";
-import { useScore } from "../../../../hooks";
+import { useData } from "../../../../hooks";
 import { AvatarAnimation } from "../../../AvatarAnimation";
 import { Button } from "../../../Button";
 import { Modal } from "../../../Modal";
@@ -10,8 +11,16 @@ type ProfileProps = {
   onClose: () => void;
 }
 
+
+
 export function Profile({ open, onClose }: ProfileProps){
-  const { score } = useScore();
+  const [pontuation, setPontuation] = useState(0);
+  const { data } = useData();
+
+  useEffect(() => {
+    setPontuation(data?.score!)
+  },[data?.score])
+
   return(
     <Modal  open={open} onClose={onClose} closeIcon >
       <Container>
@@ -24,7 +33,7 @@ export function Profile({ open, onClose }: ProfileProps){
             </DataPersonBox>
           </PersonBox>
           <ScoreBox>
-            <Score>{score}</Score>
+            <Score>{pontuation}</Score>
             <Text>pts</Text>
           </ScoreBox>
         </ContentPerson>
