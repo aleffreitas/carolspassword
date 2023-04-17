@@ -37,7 +37,7 @@ export function ScoreContextProvider({ children }: ScoreProviderProps) {
 
   useEffect(() => {
     getData()
-  },[]);
+  },[data?.score]);
 
   const values = useMemo<ScoreContextData>(
     () => ({

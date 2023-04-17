@@ -48,7 +48,20 @@ export function Questions(){
     return data;
   });
 
-   async function isWinner(){
+  async function finalGame(){
+    if(!data){
+      return ;
+    }
+
+    
+    navigate("/dashboard");
+    handleData({ 
+      winner: true,
+      winnerModal: true
+    });
+  }
+
+  async function isWinner(){
     if(!data){
       return ;
     }
@@ -57,17 +70,6 @@ export function Questions(){
       handleData({ winner: true });
       finalGame();
     };
-  }
-
-  async function finalGame(){
-    if(!data){
-      return ;
-    }
-    navigate("/dashboard");
-    handleData({ 
-      winner: true,
-      winnerModal: true
-    });
   }
 
   useEffect(() => {

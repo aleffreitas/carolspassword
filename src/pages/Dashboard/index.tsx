@@ -58,7 +58,7 @@ export function Dashboard(){
       winner: false
     });
 
-    handleScore({ score: 0 });
+    handleScore(0);
   }
 
   useEffect(() => {

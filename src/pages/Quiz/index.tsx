@@ -22,7 +22,7 @@ export function Quiz(){
     }
 
     setPontuation(data?.score!);
-  },[]);
+  },[data?.score]);
 
   return(
     <>
