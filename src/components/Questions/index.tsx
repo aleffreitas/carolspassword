@@ -29,6 +29,10 @@ export function Questions(){
 
   function closeModal(){
     setOpenModal(false);
+
+    if(data?.winner){
+      navigate("/dashboard");
+    }
   }
 
   async function getData(){
@@ -53,8 +57,6 @@ export function Questions(){
       return ;
     }
 
-    
-    navigate("/dashboard");
     handleData({ 
       winner: true,
       winnerModal: true
@@ -83,7 +85,6 @@ export function Questions(){
   async function sendQuestion(form: FormDataProps){
     try{
       let passwordQuestion = form?.password;
-      let question = numberQuestion;
 
       if(!passwordQuestion){
         return;
@@ -132,7 +133,7 @@ export function Questions(){
       <KeyBox onSubmit={handleSubmit(sendQuestion)}>
         <Input
           name="password"
-          error={errors.password && errors.password.message}
+          error=''
           control={control}
           label="Insert the code here"
           placeholder="********"

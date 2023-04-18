@@ -71,7 +71,7 @@ export function Dashboard(){
   },[data?.score]);
 
   useEffect(() => {
-    setTimeout(() => {
+    setTimeout(() => {      
       setLoading(false);
     }, 1500);
   },[]);

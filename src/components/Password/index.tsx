@@ -9,8 +9,7 @@ export function Password(){
   const { data } = useData();
 
   const password = [
-    8,
-    9,
+    6,
     9,
     1
   ]

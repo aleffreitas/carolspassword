@@ -12,7 +12,7 @@ type ScoreProps = {
 
 export type ScoreContextData = {
   score: number;
-  handleScore: ({ score }: ScoreProps) => void;
+  handleScore: (score: number) => void;
 };
 
 export const ScoreContext = createContext<ScoreContextData>(
@@ -28,11 +28,11 @@ export function ScoreContextProvider({ children }: ScoreProviderProps) {
   }, []);
 
   async function getData(){
-    const data: UserProps = JSON.parse(localStorage.getItem("userData"));
+    const data: UserProps = JSON.parse(localStorage.getItem("userData") ?? 'null');
     if(!data){
       return ;
     }
-    setScore(data?.score)
+    setScore(data?.score ?? 0);
   }
 
   useEffect(() => {
