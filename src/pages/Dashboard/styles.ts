@@ -25,4 +25,10 @@ export const BonusButton = styled.button`
   border: none;
   font-size: 32px;
   font-weight: normal;
+
+  &:hover{
+    filter: brightness(0.8);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
 `;
