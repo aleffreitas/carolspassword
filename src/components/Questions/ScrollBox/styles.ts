@@ -9,7 +9,7 @@ export const Root = styled(ScrollArea.Root)`
   `}
   margin-top: 0.5rem;
   width: 100%;
-  height: 450px;
+  height: 360px;
   border-radius: 4px;
   overflow: hidden;
   --scrollbar-size: 10px;

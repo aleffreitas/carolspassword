@@ -4,7 +4,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 2rem 2rem 1rem 2rem;
 `;
 
 export const ContentLogo = styled.button`
