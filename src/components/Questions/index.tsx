@@ -61,7 +61,8 @@ export function Questions(){
 
     handleData({ 
       winner: true,
-      winnerModal: true
+      winnerModal: true,
+      bonusModal: true,
     });
   }
 

@@ -7,6 +7,7 @@ import { WinnerModal } from "./WinnerModal";
 import { useNavigate } from "react-router-dom";
 import { useData, useScore } from "../../hooks";
 import { Loading } from "../../components/Loading";
+import { BonusButton } from "./styles";
 
 export function Dashboard(){
   const [openModal, setOpenModal] = useState(false);
@@ -41,6 +42,7 @@ export function Dashboard(){
 
   function closeWinnerModal(){
     setOpenWinnerModal(false);
+    handleData({ winnerModal: false });
   } 
 
   function closeModal(){
@@ -84,6 +86,11 @@ export function Dashboard(){
         <>
           <Password />
           <ScoreCircle score={pontuation} />
+
+          {data?.winner === true && (
+            <BonusButton onClick={() => navigate("/bonus")}>Bonus</BonusButton> 
+          )}
+
           {data?.winner === true ? (
             <Button
               text="Reset Progress"

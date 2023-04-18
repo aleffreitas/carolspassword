@@ -12,6 +12,7 @@ export type UserProps = {
   initialLoading?: boolean;
   pageBonus?: boolean;
   numberQuestion?: number;
+  bonusModal?: boolean;
 };
 
 export type UserContextData = {
