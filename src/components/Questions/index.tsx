@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ScrollBox } from "./ScrollBox";
 import { questions } from "./questions";
@@ -11,9 +11,11 @@ import { ModalReturnQuestion } from "./ModalReturnQuestion";
 import { useData, useScore } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 
-interface FormDataProps {
+interface FormDataProps extends FieldValues{
   password: number;
 }
+
+type FieldValuesWithoutPassword = Omit<FieldValues, "password">;
 
 export function Questions(){
   const [numberQuestion, setNumberQuestion] = useState(0);
@@ -23,7 +25,7 @@ export function Questions(){
   const { data, handleData } = useData();
   const navigate = useNavigate();
 
-  const { control, handleSubmit, reset, formState: { errors } } = useForm({
+  const { control, handleSubmit, reset, formState: { errors } } = useForm<FieldValuesWithoutPassword>({
     resolver: yupResolver(schema)
   });
 
@@ -82,9 +84,9 @@ export function Questions(){
     isWinner();
   },[data?.score]);
 
-  async function sendQuestion(form: FormDataProps){
+  async function sendQuestion(formData: FieldValuesWithoutPassword){
     try{
-      let passwordQuestion = form?.password;
+      let passwordQuestion = formData?.password;
 
       if(!passwordQuestion){
         return;
