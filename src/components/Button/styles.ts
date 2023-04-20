@@ -17,7 +17,7 @@ export const ButtonAction = styled.button<ButtonProps>`
     font-weight: bold;
     border: none;
     height: 68px;
-    width: 100%;
+    width: 90%;
     cursor: pointer;
     
     &:hover{

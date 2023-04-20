@@ -2,7 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import { GlobalStyle } from "./styles/global";
 import { Header } from "./components/Header";
-import { Container, Content, GlobalContainer } from "./components/ContainerGlobal/styles";
+import { Container, Content } from "./components/ContainerGlobal/styles";
 import { MyRoutes } from "./routes";
 import { useEffect, useState } from "react";
 import { Load } from "./components/Load";
@@ -24,7 +24,7 @@ export function App() {
 
     setTimeout(async () => {
       setLoading(false);
-    }, 500000);
+    }, 5000);
   }
 
   useEffect(() => {
@@ -39,12 +39,12 @@ export function App() {
           {loading ?(
             <Load />
           ):(
-            <Content>
+            <>
               <Header /> 
-              <GlobalContainer>
-                <MyRoutes />
-              </GlobalContainer>
-            </Content>
+              <Content>
+                  <MyRoutes />
+              </Content>
+            </>
           )}
         </Container>
       </AppProvider>

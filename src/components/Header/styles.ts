@@ -4,7 +4,11 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 2rem 1rem 2rem;
+  height: 100px;
+  width: 100%;
+  position: sticky;
+  box-sizing: border-box;
+  padding: 1rem;
 `;
 
 export const ContentLogo = styled.button`

@@ -7,7 +7,7 @@ import { WinnerModal } from "./WinnerModal";
 import { useNavigate } from "react-router-dom";
 import { useData, useScore } from "../../hooks";
 import { Loading } from "../../components/Loading";
-import { BonusButton } from "./styles";
+import { BonusButton, Container } from "./styles";
 
 export function Dashboard(){
   const [openModal, setOpenModal] = useState(false);
@@ -83,7 +83,7 @@ export function Dashboard(){
       {loading ? (
         <Loading />
       ):(
-        <>
+        <Container>
           <Password />
           <ScoreCircle score={pontuation} />
 
@@ -114,7 +114,7 @@ export function Dashboard(){
           {openWinnerModal &&(
             <WinnerModal open={openWinnerModal} onClose={() => closeWinnerModal()}/>
           )}
-        </>
+        </Container>
       )}
     </>
   );
