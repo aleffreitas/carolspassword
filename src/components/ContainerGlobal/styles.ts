@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* height: 100vh; */
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 `;
 
 export const Content = styled.div`
   width: 100%;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 120px);
   /* max-width: 414px; */
   display: flex;
   flex-direction: column;
