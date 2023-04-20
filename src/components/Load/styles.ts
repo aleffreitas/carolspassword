@@ -18,15 +18,16 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
 `;
 
 export const Content = styled.div`
-  /* margin-top: 4rem; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  height: 380px;
+  height: 300px;
   text-align: center;
 `;
 

@@ -21,5 +21,4 @@ export const GlobalContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
-  height: calc(100vh - 210px);
 `;
