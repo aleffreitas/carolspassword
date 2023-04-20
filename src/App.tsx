@@ -24,7 +24,7 @@ export function App() {
 
     setTimeout(async () => {
       setLoading(false);
-    }, 5000);
+    }, 500000);
   }
 
   useEffect(() => {

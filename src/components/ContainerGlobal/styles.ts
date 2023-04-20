@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  overflow: hidden;
 `;
 
 export const Content = styled.div`
@@ -19,5 +21,5 @@ export const GlobalContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
-  height: calc(100vh - 300px);
+  height: calc(100vh - 210px);
 `;

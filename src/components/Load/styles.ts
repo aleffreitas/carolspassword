@@ -18,11 +18,10 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 5rem;
 `;
 
 export const Content = styled.div`
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   display: flex;
   align-items: center;
   justify-content: space-between;
