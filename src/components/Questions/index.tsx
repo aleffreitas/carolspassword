@@ -3,7 +3,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ScrollBox } from "./ScrollBox";
 import { questions } from "./questions";
-import { BoxValueQuestion, ContentQuestion, Header, KeyBox, NumberQuestion, Text, Title, ValueQuestion } from "./styles";
+import { BoxValueQuestion, Container, ContentQuestion, Header, KeyBox, NumberQuestion, Text, Title, ValueQuestion } from "./styles";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { schema } from "./validations";
@@ -120,7 +120,7 @@ export function Questions(){
 
   
   return(
-    <>
+    <Container>
       <Header>
         <ContentQuestion>
           <Title>Question</Title>
@@ -156,6 +156,6 @@ export function Questions(){
         icon={!wrongQuestion ? "ok" : "wrong"}
         finishQuestions={data?.numberQuestion === 4 ? true : false}
       />
-    </>
+    </Container>
   );
 }

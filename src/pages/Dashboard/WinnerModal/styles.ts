@@ -18,8 +18,13 @@ export const Title = styled.h1`
   ${({ theme }) => css`
     color: ${theme.colors.purple};
   `}
-  font-size: 32px;
+  font-size: 26px;
   font-weight: bold;
+`;
+
+export const ContainerAvatar = styled.div`
+  height: 160px;
+  width: 70%;
 `;
 
 export const Text = styled.p`
@@ -27,7 +32,8 @@ export const Text = styled.p`
     color: ${theme.colors.white};
   `}
   font-weight: normal;
-  font-size: 20px;
+  font-size: 16px;
+  margin-top: -1.5rem;
 `;
 
 export const Emphasis = styled.span<EmphasisProps>`
@@ -35,5 +41,5 @@ export const Emphasis = styled.span<EmphasisProps>`
     color: ${withPurple ? theme.colors.purple : theme.colors.white};
   `}
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
 `;

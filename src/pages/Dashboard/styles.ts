@@ -24,7 +24,7 @@ export const BonusButton = styled.button`
   `}
   background: none;
   border: none;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: normal;
 
   &:hover{

@@ -8,7 +8,7 @@ export const Container = styled.header`
   width: 100%;
   position: sticky;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 `;
 
 export const ContentLogo = styled.button`

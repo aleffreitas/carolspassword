@@ -27,7 +27,7 @@ export function ModalBonus(){
     <Modal open={open} onClose={() => closeModal()}>
       <Container>
         <Title>Bonus</Title>
-        <Logo size={16} subTitle="Animations" />
+        <Logo size={12} subTitle="Animations" />
         <Text>
           Você completou o quiz com sucesso e desbloqueou 
           a sessão de bônus do game. Aqui você irá encontrar 

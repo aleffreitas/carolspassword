@@ -9,8 +9,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  height: 100px;
-  width: 150px;
+  height: 80px;
+  width: 130px;
 `;
 
 export const Padlock = styled.div<PadlockProps>`
@@ -22,7 +22,7 @@ export const Padlock = styled.div<PadlockProps>`
   align-items: center;
   justify-content: center;
   width: 100%;
-  font-size: 48px;
+  font-size: 35px;
 `;
 
 export const Bloc = styled.div`
@@ -32,8 +32,8 @@ export const Bloc = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 42px;
-  width: 42px;
+  height: 35px;
+  width: 35px;
   border-radius: 10px;
 `;
 
@@ -44,7 +44,7 @@ export const ContentBloc = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   width: 100%;
 `;

@@ -4,7 +4,7 @@ import { useData } from "../../../../hooks";
 import { AvatarAnimation } from "../../../AvatarAnimation";
 import { Button } from "../../../Button";
 import { Modal } from "../../../Modal";
-import { Container, ContentPerson, DataPersonBox, Email, Name, PersonBox, Score, ScoreBox, Text } from "./styles";
+import { Container, ContainerAvatar, ContentPerson, DataPersonBox, Email, Name, PersonBox, Score, ScoreBox, Text } from "./styles";
 
 type ProfileProps = {
   open: boolean;
@@ -37,8 +37,10 @@ export function Profile({ open, onClose }: ProfileProps){
             <Text>pts</Text>
           </ScoreBox>
         </ContentPerson>
-
-        <AvatarAnimation variantAnimation="dancing" />
+        
+        <ContainerAvatar>
+          <AvatarAnimation variantAnimation="dancing" />
+        </ContainerAvatar>
 
         <Button
           type="button"

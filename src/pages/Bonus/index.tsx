@@ -1,6 +1,6 @@
 import { Button } from "../../components/Button";
 import { Logo } from "../../components/Logo";
-import { Card, Container, Text, TitleCard } from "./styles";
+import { Card, Container, ContainerAvatar, Text, TitleCard } from "./styles";
 import { AvatarAnimation } from "../../components/AvatarAnimation";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; //
@@ -62,7 +62,7 @@ export function Bonus(){
         <>
           <Container>
             <Text>Bonus</Text>
-            <Logo subTitle="Animations" size={14} />
+            <Logo subTitle="Animations" size={12} />
             <Carousel
               width={310}
               showArrows={false}
@@ -71,7 +71,9 @@ export function Bonus(){
               {animations.map((animation) => (
                 <Card key={animation.id}>
                   <TitleCard>{animation.title}</TitleCard>
-                  <AvatarAnimation variantAnimation={animation.animation} />
+                  <ContainerAvatar>
+                    <AvatarAnimation variantAnimation={animation.animation} />
+                  </ContainerAvatar>
                 </Card>   
               ))}
             </Carousel>

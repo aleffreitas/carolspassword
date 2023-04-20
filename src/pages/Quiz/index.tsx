@@ -30,7 +30,7 @@ export function Quiz(){
         <Loading />
       ):(
         <Container>
-          <ScoreCircle score={pontuation} scale={0.4}/>
+          {/* <ScoreCircle score={pontuation} scale={0.4}/> */}
           <Questions />
         </Container>
       )}

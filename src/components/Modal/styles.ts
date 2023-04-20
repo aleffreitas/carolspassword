@@ -21,7 +21,7 @@ export const Content = styled(RadixContent)`
   `};
   width: 90%; 
   max-height: 80%;  
-  padding: 32px;
+  padding: 2rem;
   border-radius: 10px;
   box-sizing: border-box;
   position: relative;

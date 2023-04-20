@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import { css } from "styled-components";
 
+export const Container = styled.div`
+  width: 90%;
+`;
+
 export const Header = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   width: 100%;
-  margin-top: -4rem;
 `;
 
 export const ContentQuestion = styled.div`

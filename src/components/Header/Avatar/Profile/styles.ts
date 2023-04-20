@@ -2,12 +2,11 @@ import styled from "styled-components";
 import { css } from "styled-components";
 
 export const Container = styled.div`
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  width: 100%;
 `;
 
 export const ContentPerson = styled.div`
@@ -69,4 +68,10 @@ export const Text = styled.p`
     font-size: 14px;
     font-weight: bold;
   `}
+`;
+
+export const ContainerAvatar = styled.div`
+  width: 100%;
+  height: 220px;
+  margin-top: 2rem;
 `;

@@ -13,10 +13,10 @@ export const ButtonAction = styled.button<ButtonProps>`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
+    font-size: 18px;
     font-weight: bold;
     border: none;
-    height: 68px;
+    height: 55px;
     width: 90%;
     cursor: pointer;
     
@@ -30,7 +30,7 @@ export const ButtonAction = styled.button<ButtonProps>`
     background-color: transparent;
     border: none;
     color: ${theme.colors.white}; 
-    font-size: 20px;
+    font-size: 18px;
     font-weight: regular;
     display: flex;
     gap: 0.4rem;
@@ -50,7 +50,7 @@ export const ButtonAction = styled.button<ButtonProps>`
 export const Icon = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.purple};
-    font-size: 30px;  
+    font-size: 25px;  
     display: flex;
     align-items: center;
     justify-content: center;
