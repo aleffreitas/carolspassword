@@ -22,8 +22,8 @@ export const OuterCircle = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  height: 291px;
-  width: 291px;
+  height: 210px;
+  width: 210px;
 `;
 
 export const InnerCircle = styled.div`
@@ -36,16 +36,17 @@ export const InnerCircle = styled.div`
   border-radius: 50%;
   flex-direction: column;
   line-height: 50px;
-  height: 213px;
-  width: 213px;
+  height: 130px;
+  width: 130px;
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+  line-height: 30px;
 `;
 
 export const Text = styled.h1`
   ${({ theme }) => css`
     color: ${theme.colors.white};  
   `}
-  font-size: 32px;
+  font-size: 20px;
   font-weight: bold;
 `;
 
@@ -53,6 +54,6 @@ export const Score = styled.h1`
   ${({ theme }) => css`
     color: ${theme.colors.purple};  
   `}
-  font-size: 64px;
+  font-size: 40px;
   font-weight: bold;
 `;

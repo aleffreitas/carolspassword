@@ -14,6 +14,7 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
+  box-sizing: border-box;
 `;
 
 // export const GlobalContainer = styled.div`

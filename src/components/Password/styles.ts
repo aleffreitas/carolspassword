@@ -9,8 +9,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  height: 106px;
-  width: 183px;
+  height: 100px;
+  width: 150px;
 `;
 
 export const Padlock = styled.div<PadlockProps>`
