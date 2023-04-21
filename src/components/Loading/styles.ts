@@ -15,7 +15,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 90%;
-
+  width: 100%;
 `;
 
 export const Content = styled.div`

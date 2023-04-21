@@ -2,7 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import { GlobalStyle } from "./styles/global";
 import { Header } from "./components/Header";
-import { Container, Content } from "./components/ContainerGlobal/styles";
+import { Container, Content, GlobalContainer } from "./components/ContainerGlobal/styles";
 import { MyRoutes } from "./routes";
 import { useEffect, useState } from "react";
 import { Load } from "./components/Load";
@@ -36,16 +36,18 @@ export function App() {
       <AppProvider>
         <GlobalStyle />
         <Container>
-          {loading ?(
-            <Load />
-          ):(
-            <>
-              <Header /> 
-              <Content>
-                  <MyRoutes />
-              </Content>
-            </>
-          )}
+          <GlobalContainer>
+            {loading ?(
+              <Load />
+            ):(
+              <div>
+                <Header /> 
+                <Content>
+                    <MyRoutes />
+                </Content>
+              </div>
+            )}
+          </GlobalContainer>
         </Container>
       </AppProvider>
     </ThemeProvider>

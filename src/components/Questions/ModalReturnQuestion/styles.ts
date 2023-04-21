@@ -9,6 +9,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  min-width: 200px;
   gap: 1rem;
 `;
 

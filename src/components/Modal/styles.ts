@@ -19,7 +19,7 @@ export const Content = styled(RadixContent)`
   ${({ theme }) => css`
     background-color: ${theme.colors.gray900};
   `};
-  width: 90%; 
+  max-width: 90%; 
   max-height: 80%;  
   padding: 2rem;
   border-radius: 10px;
